@@ -28,7 +28,15 @@ def predict(data):
 
 
 def api_response(request_):
-    pass
+    try:
+        data = np.array([list(request.json.values())])
+        response = predict(data)
+        response = {"response": response}
+        return response
+    except Exception as e:
+        print(e)
+        error = {"error": "Something went Wrong"}
+        return error
 
 
 @app.route('/', methods=["GET", "POST"])
