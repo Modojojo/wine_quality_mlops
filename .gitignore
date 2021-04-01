@@ -1,2 +1,3 @@
 data_given/winequality.csv
 commands_utils.txt
+prediction_service/model/model.joblib
