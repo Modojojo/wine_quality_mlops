@@ -74,7 +74,6 @@ def train_and_evaluate(config_path):
             mlflow.sklearn.load_model(lr, "model")
 
 
-
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--config", default="params.yaml")
