@@ -40,7 +40,7 @@ def predict(data):
 
     try:
         if 3 <= prediction <= 8:
-            return str(prediction)[:5]
+            return prediction
         else:
             raise NotInRange
     except NotInRange:
