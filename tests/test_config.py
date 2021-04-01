@@ -46,6 +46,21 @@ input_data = {
         "pH": 3,
         "sulphates": 1,
         "alcohol": 9
+    },
+
+    "no_data":
+    {
+        "fixed_acidity": "",
+        "volatile_acidity": "",
+        "citric_acid": "",
+        "residual_sugar": "",
+        "chlorides": "",
+        "free_sulfur_dioxide": "",
+        "total_sulfur_dioxide": "",
+        "density": "",
+        "pH": "",
+        "sulphates": "",
+        "alcohol": ""
     }
 }
 
@@ -78,3 +93,8 @@ def test_api_response_incorrect_range(data=input_data["incorrect_range"]):
 def test_api_response_incorrect_col(data=input_data["incorrect_col"]):
     res = prediction.api_response(data)
     assert res["response"] == prediction_service.prediction.NotInCols().message
+
+
+def test_form_response_no_data(data=input_data["no_data"]):
+    with pytest.raises(prediction_service.prediction.NoDataEntered):
+        res = prediction.form_response(data)
